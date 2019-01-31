@@ -5,6 +5,8 @@ public class Car {
     private int maxSpeed;;
     private double weight;
     private String license;
+    private int seats = 5;
+    private int passanger = 1;
     
     private double mileage;
     private int currentFuel;
@@ -21,6 +23,8 @@ public class Car {
         this.maxFuel = 50;
         this.consumption = 1;
         this.currentFuel = 50;
+        this.seats = 5;
+        this.passanger = 1;
         
     }
     
@@ -53,6 +57,8 @@ public class Car {
         System.out.println("Trenutno goriva: " + this.currentFuel);
         System.out.println("Velicina rezervoara: " + this.maxFuel);
         System.out.println("Potrisnja: " + this.consumption);
+        System.out.println("Broj mesta:" + this.seats);
+        System.out.println("Broj putnika: " + this.passanger);
         System.out.println(" ");
     }
     
@@ -64,6 +70,14 @@ public class Car {
     
     public double getWeight(){
         return this.weight;
+    }
+    
+    public void setSeats(int customSeats){
+        this.seats = customSeats;
+    }
+    
+    public void setPassanger(int numberOfPassanger){
+        this.passanger = numberOfPassanger;
     }
     
     public void setConsumption(int customConsuption){
@@ -78,6 +92,14 @@ public class Car {
             System.out.println("Nema dovoljno goriva za toliki put");
         }
         }
+    
+    public void addPassanger(int seatsTaken){
+        if(this.seats > this.passanger + seatsTaken){
+            this.passanger += seatsTaken;
+        }else{
+            System.out.println("Nema dovoljno  mesta");
+        }
+    }
     
     public void fuelUp(){
         System.out.println("U automobil " + this.model + " je sipano " + (this.maxFuel - this.currentFuel) + " litara goriva");
